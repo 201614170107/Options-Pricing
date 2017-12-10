@@ -21,16 +21,22 @@ C = BSM_EU(S0,K,r,t,sigma);         % Get option price from BS
 vola = hist_vola(S,'daily');
 
 % Get implied volatility from option prices
-IV_N = IV_Newton(C,S0,K,r,t);    % Newton's method
-IV_B = IV_bisection(C,S0,K,r,t); % Bisection method
+%IV_N = IV_Newton(C,S0,K,r,t);    % Newton's method
+%IV_B = IV_bisection(C,S0,K,r,t); % Bisection method
 
 % Do the same with IV_search
 IV_N2 = IV_search(C,S0,K,r,t,'newton');
 IV_B2 = IV_search(C,S0,K,r,t,'bisection');
 
-
 disp(vola.estimate)
-disp(IV_N)
-disp(IV_B)
+%disp(IV_N)
+%disp(IV_B)
 disp(IV_N2)
 disp(IV_B2)
+
+%% European vanilla options
+[BSM_EU_call, BSM_EU_put] = BSM_EU(S0,K,r,t,sigma);
+[BSM_EU_bin_call, BSM_EU_bin_put] = BSM_BinaryEU(S0,K,r,t,sigma);
+
+disp([BSM_EU_call, BSM_EU_put])
+disp([BSM_EU_bin_call, BSM_EU_bin_put])

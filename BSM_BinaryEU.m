@@ -1,5 +1,6 @@
-function [C,P] = BSM_EU(S,K,r,t,sigma)
-% Black/Scholes call and put price for European option
+function [C,P] = BSM_BinaryEU(S,K,r,t,sigma)
+% European cash-or-nothing call and put price.
+% Computed using Black-Scholes-Merton formula.
 %
 % The function accepts vectors as input as long as they ...
 % ... have the same dimension. Scalars can be combined ...
@@ -15,18 +16,24 @@ function [C,P] = BSM_EU(S,K,r,t,sigma)
 %         C ...... Nx1     call price
 %         P ...... Nx1     put price
 %
-% danilo.zocco@gmail.com, 2017-12-03
-    
+% danilo.zocco@gmail.com, 2017-12-10
+
     if t > 0
-        d1 = (log(S./K)+(r+0.5*sigma.^2).*t) ./ (sigma.*sqrt(t));
-        d2 = d1 - sigma.*sqrt(t);
-        N1 = 0.5*(1+erf(d1/sqrt(2)));
-        N2 = 0.5*(1+erf(d2/sqrt(2)));    
-        C = S.*N1 - K.*exp(-r.*t).*N2;
-        P = K.*exp(-r.*t).*(1-N2)-S.*(1-N1);
+        d2 = (log(S./K)+(r-0.5*sigma.^2).*t) ./ (sigma.*sqrt(t));
+        N2 = 0.5*(1+erf(d2/sqrt(2)));
+        C = exp(-r.*t).*N2;
+        P = exp(-r.*t).*(1-N2);
     elseif t == 0
-        C = max(S-K,0);
-        P = max(K-S,0);
+        if S > K
+            C = 1.0;
+            P = 0.0;
+        elseif S < K
+            C = 0.0;
+            P = 1.0;
+        elseif S == K
+            C = 0.5;
+            P = 0.5;
+        end
     else
         disp('Time-to-expiry cannot be negative')
     end
