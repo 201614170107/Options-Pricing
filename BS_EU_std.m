@@ -1,5 +1,5 @@
-function [C,P] = BSM_EU(S,K,r,t,sigma)
-% Black/Scholes call and put price for European option
+function P = BS_EU_std(S,K,r,t,sigma)
+% Black/Scholes put price for European standard options
 %
 % The function accepts vectors as input as long as they ...
 % ... have the same dimension. Scalars can be combined ...
@@ -11,9 +11,7 @@ function [C,P] = BSM_EU(S,K,r,t,sigma)
 %         t ...... Nx1      column-vector of time to expiry
 %         sigma .. Nx1      column-vector of volatility
 %
-% OUTPUT [C, P] .. Nx2
-%         C ...... Nx1     call price
-%         P ...... Nx1     put price
+% OUTPUT  P ...... Nx1      put price
 %
 % danilo.zocco@gmail.com, 2017-12-03
     
@@ -22,10 +20,8 @@ function [C,P] = BSM_EU(S,K,r,t,sigma)
         d2 = d1 - sigma.*sqrt(t);
         N1 = 0.5*(1+erf(d1/sqrt(2)));
         N2 = 0.5*(1+erf(d2/sqrt(2)));    
-        C = S.*N1 - K.*exp(-r.*t).*N2;
         P = K.*exp(-r.*t).*(1-N2)-S.*(1-N1);
     elseif t == 0
-        C = max(S-K,0);
         P = max(K-S,0);
     else
         disp('Time-to-expiry cannot be negative')
