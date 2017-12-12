@@ -1,4 +1,4 @@
-function P = BT_AM(S,K,r,T,sigma,n)
+function P = BT_AM_std(S,K,r,T,sigma,n)
 % Binomial methods for American standard put
 %
 % Say something about source

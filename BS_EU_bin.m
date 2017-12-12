@@ -1,5 +1,5 @@
 function P = BS_EU_bin(S,K,r,t,sigma)
-% Black/Scholes put price for European cash-or-nothing options
+% Black/Scholes for European cash-or-nothing put
 %
 % The function accepts vectors as input as long as they ...
 % ... have the same dimension. Scalars can be combined ...

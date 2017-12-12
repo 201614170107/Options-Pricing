@@ -10,15 +10,16 @@
 
 % ===== European binary options (cash) =====
 % BS for European binary put -> BS_EU_bin : Doc and comment
-% BT for European binary put -> BT_EU_bin :
+% BT for European binary put -> BT_EU_bin : Doc and comment
 % MC for European binary put -> MC_EU_bin :
 
 % ===== American binary options (cash) =====
-% BT for American binary put -> BT_AM_bin :
+% BT for American binary put -> BT_AM_bin : Doc and comment
 % MC for American binary put -> MC_AM_bin :
 
 
 %% ===== Ideas and thoughts =====
+% Modify binaries for A (qty)
 % Add Greeks !
 % Add Asian options
 % Make a live script version and publish to HTML
