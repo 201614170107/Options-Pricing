@@ -1,11 +1,11 @@
 %% List of pricing functions
 % ===== European vanilla options =====
 % BS for European vanilla put -> BS_EU_std : Doc and comment
-% BT for European vanilla put -> BT_EU_std : WIP
+% BT for European vanilla put -> BT_EU_std : Doc and comment
 % MC for European vanilla put -> MC_EU_std :
 
 % ===== American vanilla options =====
-% BT for American vanilla put -> BT_AM_std :
+% BT for American vanilla put -> BT_AM_std : Doc and comment
 % MC for American vanilla put -> MC_AM_std :
 
 % ===== European binary options (cash) =====
@@ -21,5 +21,6 @@
 %% ===== Ideas and thoughts =====
 % Add Greeks !
 % Add Asian options
+% Make a live script version and publish to HTML
 %
 %
