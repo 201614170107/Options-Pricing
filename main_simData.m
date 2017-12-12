@@ -7,6 +7,9 @@
 % T = Length of simulation
 % t = time to maturity for option
 
+%% Set search path
+manage_path('set')
+
 %% Initial parameters
 S0 = 100.0; mu = 0.05; sigma = 0.3; % Stock
 K = [110;115]; t = 0.4; r = 0.02;         % Option
@@ -40,3 +43,7 @@ disp(IV_B2)
 
 disp([BSM_EU_call, BSM_EU_put])
 disp([BSM_EU_bin_call, BSM_EU_bin_put])
+
+
+%% Restore search path
+manage_path('restore')

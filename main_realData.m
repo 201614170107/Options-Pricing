@@ -11,6 +11,9 @@
 % T = Length of simulation
 % t = time to maturity for option
 
+%% Set search path
+manage_path('set')
+
 %% Constants
 data = 'AAPL.mat';
 
@@ -38,11 +41,14 @@ tau = days(T-t0)/365;               % Time-to-expiry (in years)
 %% Get realistic volatility estimates
 % From historical prices
 vola = hist_vola(S,'daily');
-disp(vola)
+%disp(vola)
 
 % Implied volatilities
 IV_N = IV_search(C,S0,K,rf,tau,'newton');    % Newton's method
 IV_B = IV_search(C,S0,K,rf,tau,'bisection'); % Bisection method
 %disp(IV_N)
 %disp(IV_B)
-plot(K,IV_N)
+%plot(K,IV_N)
+
+%% Restore search path
+manage_path('restore')
