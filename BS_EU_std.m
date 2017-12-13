@@ -1,5 +1,5 @@
 function P = BS_EU_std(S,K,r,t,sigma)
-% Black/Scholes put price for European standard options
+% Black/Scholes for European standard put
 %
 % The function accepts vectors as input as long as they ...
 % ... have the same dimension. Scalars can be combined ...

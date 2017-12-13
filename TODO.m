@@ -11,12 +11,17 @@
 % ===== European binary options (cash) =====
 % BS for European binary put -> BS_EU_bin : Doc and comment
 % BT for European binary put -> BT_EU_bin : Doc and comment
-% MC for European binary put -> MC_EU_bin : Refine, doc and comment
+% MC for European binary put -> MC_EU_bin : Refine, doc and comment + Add Laguerre poly
 
 % ===== American binary options (cash) =====
 % BT for American binary put -> BT_AM_bin : Doc and comment
 % MC for American binary put -> MC_AM_bin :
 
+
+%% ===== Notes =====
+% S0 : Initial stock price
+% K  : Strike
+% r  : continuously-compunded risk-free rate
 
 %% ===== Ideas and thoughts =====
 % Modify binaries for A (qty)
