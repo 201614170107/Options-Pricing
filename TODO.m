@@ -22,6 +22,17 @@
 % Modify binaries for A (qty)
 % Add Greeks !
 % Add Asian options
-% Make a live script version and publish to HTML
+% Make a live script version and publish HTML to GitHub
 %
 %
+
+%% ===== Test parameters =====
+% General
+S = 100;        % Initial stock price
+K = 100;        % Strike price
+r = 0.05;       % Risk-free interest rate
+T = 1;          % Life-span of the option (Not time-to-expiry!)
+sigma = 0.2 ;   % Annual volatility of the stock
+n = 10;         % Steps in BT
+N = 3;          % Steps in MC/LSM
+M = 3;          % Asset paths in MC/LSM
