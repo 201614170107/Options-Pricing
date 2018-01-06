@@ -3,7 +3,7 @@ function P = BlackScholes(S,K,B,r,t,sigma,feature)
 %
 % INPUT   S ........ 1x1      stock price
 %         K ........ 1x1      strike price
-%         B ........ 1x1      barrier price
+%         B ........ 1x1      barrier price (B > K, B > S)
 %         r ........ 1x1      interest rate
 %         t ........ 1x1      time to expiry
 %         sigma .... 1x1      volatility
